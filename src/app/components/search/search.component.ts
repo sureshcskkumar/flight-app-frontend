@@ -12,4 +12,14 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search(source:string, destination:string, flightdate:string, returnDate:string) {
+    console.log("Source: " + source);
+    console.log("Destination: " + destination);
+    console.log("Flightdate: " + flightdate);
+    console.log("ReturnDate: " + returnDate);
+
+  }
+
+
+
 }

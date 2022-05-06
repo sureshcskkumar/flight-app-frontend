@@ -1,5 +1,19 @@
 <div>
-    <form>
-        <input type="text">
+    <form align="center">
+        Source <input #source type="text">
+        Destination <input #destination type="text">
+        Flight Date <input #flightDate type="date">
+        ReturnDate <input #returnDate type="date" >
+        <input type="button" value="Search" (click) = "search(source.value, destination.value, flightDate.value, returnDate.value)">
     </form>
+
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr></tr>
+    </table>
 </div>
