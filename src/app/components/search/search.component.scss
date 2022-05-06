@@ -4,3 +4,14 @@ form {
 input {
     margin: 10px;
 }
+
+#flightList {
+    float:left; /* add this */
+    border: 1px solid red;
+    margin: 10px;
+}
+#returnList {
+    border: 1px solid green;
+    float: left; /* add this */
+    margin: 10px;
+}

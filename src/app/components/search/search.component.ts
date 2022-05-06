@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  isReturn:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +19,11 @@ export class SearchComponent implements OnInit {
     console.log("Destination: " + destination);
     console.log("Flightdate: " + flightdate);
     console.log("ReturnDate: " + returnDate);
+
+    console.log("!!ReturnDate: " + !!returnDate);
+
+    if (returnDate != null)
+      this.isReturn = true;
 
   }
 
