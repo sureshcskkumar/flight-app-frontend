@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,13 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    console.log("Redirect to Search Component");
+    this.router.navigate(["/", "search"])
+  }
 }

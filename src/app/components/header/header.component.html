@@ -1,5 +1,10 @@
-<div>
+<header>
     <h2>Flight Booking Application</h2>
-    <br>
-    <input type="button" value="Search">
-</div>
+    
+    <div align="right">
+        <button (click)="search()">Search Flights</button>
+        <button *ngIf="!isLoggedIn">Sign-in</button>
+        <button *ngIf="!isLoggedIn">Sign-up</button>
+        <button *ngIf="isLoggedIn">Logout</button>
+    </div>
+</header>
