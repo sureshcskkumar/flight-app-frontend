@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResult } from 'src/app/models/search.result';
 
 @Component({
   selector: 'app-search',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  isReturn:boolean = false;
+  searchResult:SearchResult | undefined;
 
   constructor() { }
 
@@ -20,13 +21,6 @@ export class SearchComponent implements OnInit {
     console.log("Flightdate: " + flightdate);
     console.log("ReturnDate: " + returnDate);
 
-    console.log("!!ReturnDate: " + !!returnDate);
-
-    if (returnDate != null)
-      this.isReturn = true;
-
   }
-
-
 
 }

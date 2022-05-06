@@ -8,7 +8,7 @@
             (click)="search(source.value, destination.value, flightDate.value, returnDate.value)">
     </form>
 
-    <div id="flightList">
+    <div id="flightList" *ngIf="!!searchResult && !!searchResult.departureFlightResultList && searchResult.departureFlightResultList.length>0">
 
         
         <table>
@@ -22,7 +22,7 @@
         </table>
     </div>
 
-    <div id="returnList" *ngIf="!!returnDate">
+    <div id="returnList" *ngIf="!!searchResult && !!searchResult.returnFlightResultList && searchResult.returnFlightResultList.length>0">
 
         <table>
             <tr>
