@@ -6,16 +6,24 @@ input {
 }
 
 #flightList {
-    float:left; /* add this */
+    float:left;
     border: 1px solid black;
     margin: 10px;
 }
 #returnList {
     border: 1px solid black;
-    float: left; /* add this */
+    float: left;
     margin: 10px;
 }
 
 table {
     border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+.required {
+    color: red;
 }

@@ -14,7 +14,7 @@ export class FlightSearchService {
                     + "fromPlace=" + source
                     + "&toPlace=" + destination
                     + "&flightDate=" + flightdate;
-        url = (!!returnDate) ? "url" + "&returnDate=" + returnDate : url;
+        url = (!!returnDate) ? url + "&returnDate=" + returnDate : url;
 
         return this.httpClient.get(url, {headers: {}});
     }

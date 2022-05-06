@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchResult } from 'src/app/models/search.result';
 import { FlightSearchService } from 'src/app/services/search.service';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -11,7 +11,22 @@ export class SearchComponent implements OnInit {
 
   searchResult:SearchResult | undefined;
 
-  constructor(private searchService:FlightSearchService) { }
+  searchForm:FormGroup;
+
+  constructor(private searchService:FlightSearchService) {
+    this.searchForm = new FormGroup({
+      source: new FormControl("", [
+        Validators.required
+      ]),
+      destination: new FormControl("", [
+        Validators.required
+      ]),
+      flightDate: new FormControl("", [
+        Validators.required
+      ]),
+      returnDate: new FormControl("")
+    })
+  }
 
   ngOnInit(): void {
   }

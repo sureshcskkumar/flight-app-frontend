@@ -9,7 +9,7 @@ import { SearchComponent } from '../search/search.component';
 })
 export class HeaderComponent implements OnInit {
 
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   constructor(private router:Router) { }
 

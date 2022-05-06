@@ -1,16 +1,17 @@
-<div>
-    <form align="center">
-        Source <input #source type="text" required="true">
-        Destination <input #destination type="text">
-        Flight Date <input #flightDate type="date">
-        Return Date <input #returnDate type="date">
-        <input type="button" value="Search"
-            (click)="search(source.value, destination.value, flightDate.value, returnDate.value)">
+<div align="center" >
+    <form 
+      [formGroup]="searchForm"
+      (submit)="search(source.value, destination.value, flightDate.value, returnDate.value)">
+        Source<span class="required">*</span> <input #source type="text" formControlName="source">
+        Destination<span class="required">*</span> <input #destination type="text" formControlName="destination">
+        Flight Date<span class="required">*</span> <input #flightDate type="date" formControlName="flightDate">
+        Return Date <input #returnDate type="date" formControlName="returnDate">
+        <input type="submit" value="Search" [disabled]="searchForm.invalid">
     </form>
 
-    <div id="flightList" *ngIf="!!searchResult && !!searchResult.departureFlightResultList && searchResult.departureFlightResultList.length>0">
 
-        
+    <div id="flightList" *ngIf="!!searchResult && !!searchResult.departureFlightResultList && searchResult.departureFlightResultList.length>0">
+        <h4>{{searchResult.source}} to {{searchResult.destination}} on {{searchResult.departureDate | date:"dd-MM-yyyy"}}</h4>
         <table>
             <tr>
                 <th>Airline</th>
@@ -18,12 +19,17 @@
                 <th>EndTime</th>
                 <th>Ticket Cost</th>
             </tr>
-            <tr></tr>
+            <tr *ngFor="let searchResultEntity of searchResult.departureFlightResultList">
+                <td>{{searchResultEntity.airlineName}}</td>
+                <td>{{searchResultEntity.startTime}}</td>
+                <td>{{searchResultEntity.endTime}}</td>
+                <td>{{searchResultEntity.ticketCost}}</td>
+            </tr>
         </table>
     </div>
 
     <div id="returnList" *ngIf="!!searchResult && !!searchResult.returnFlightResultList && searchResult.returnFlightResultList.length>0">
-
+        <h4>{{searchResult.destination}} to {{searchResult.source}} on {{searchResult.returnDate | date:"dd-MM-yyyy"}}</h4>
         <table>
             <tr>
                 <th>Airline</th>
@@ -31,7 +37,12 @@
                 <th>EndTime</th>
                 <th>Ticket Cost</th>
             </tr>
-            <tr></tr>
+            <tr *ngFor="let returnSearchResultEntity of searchResult.returnFlightResultList">
+                <td>{{returnSearchResultEntity.airlineName}}</td>
+                <td>{{returnSearchResultEntity.startTime}}</td>
+                <td>{{returnSearchResultEntity.endTime}}</td>
+                <td>{{returnSearchResultEntity.ticketCost}}</td>
+            </tr>
         </table>
     </div>
 
