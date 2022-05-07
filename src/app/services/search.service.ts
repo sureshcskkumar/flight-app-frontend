@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable({providedIn: "root"})
 export class FlightSearchService {
-    baseUrl:string = "http://localhost:8082"
+    baseUrl:string = "http://localhost:7789"
 
     constructor(private httpClient:HttpClient){}
 
