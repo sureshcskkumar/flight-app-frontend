@@ -1,0 +1,15 @@
+<div align="center">
+    <form 
+      [formGroup]="registerForm"
+      (submit)="register(email.value, password.value, firstName.value, lastName.value)">
+        Email<span class="required">*</span>:<br>
+        <input #email type="text" formControlName="email"><br>
+        Password<span class="required">*</span>:<br>
+        <input #password type="password" formControlName="password"><br>
+        First Name<span class="required">*</span>:<br>
+        <input #firstName type="text" formControlName="firstName"><br>
+        Email<span class="required">*</span>:<br>
+        <input #lastName type="text" formControlName="lastName"><br>
+        <input type="submit" value="Login" [disabled]="registerForm.invalid">
+    </form>
+</div>

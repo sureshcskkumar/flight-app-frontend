@@ -20,4 +20,20 @@ export class HeaderComponent implements OnInit {
     console.log("Redirect to Search Component");
     this.router.navigate(["/", "search"])
   }
+
+  register() {
+    console.log("User is trying to register");
+    this.router.navigate(["/", "register"])
+  }
+
+  login() {
+    console.log("User is trying to login");
+    this.router.navigate(["/", "login"])
+  }
+  logout() {
+    console.log("User is trying to logout");
+    this.router.navigate(["/", "logout"])
+  }
+
+
 }

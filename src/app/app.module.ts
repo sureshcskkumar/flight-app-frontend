@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes:Routes = [
-  {path: "search", component: SearchComponent}
+  {path: "search", component: SearchComponent},
+  {path: "register", component: RegisterComponent},
+  {path: "login", component: LoginComponent}
 ];
 
 
@@ -18,7 +22,9 @@ const routes:Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
