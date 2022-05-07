@@ -35,16 +35,28 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
   register(email:string, password:string, firstName:string, lastName:string) {
     console.log("Email: " + email);
-
     this.authenticationService.register(email,password,firstName,lastName).subscribe({
       next: (res:any) => {
         console.log("Result:")
         console.log(res)
       }
     })
-    
   }
-
+  */
+  register(email:string, password:string, firstName:string, lastName:string) {
+    console.log("Email: " + email);
+    this.authenticationService.register(email,password,firstName,lastName).subscribe({
+      next: (response:any) => {
+        alert(`You have been successfully registered`);
+        this.router.navigate(["/"])
+      },
+      error: err => {
+        alert(`User already registered. Please try to login`);
+        console.error(err);
+      }
+    })
+  }
 }

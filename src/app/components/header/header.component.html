@@ -3,8 +3,8 @@
     
     <div align="right">
         <button (click)="search()">Search Flights</button>
-        <button (click)="login()" *ngIf="!isLoggedIn">Login</button>
-        <button (click)="register()" *ngIf="!isLoggedIn">Register</button>
-        <button (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+        <button (click)="login()" *ngIf="!isUserLoggedIn()">Login</button>
+        <button (click)="register()" *ngIf="!isUserLoggedIn()">Register</button>
+        <button (click)="logout()" *ngIf="isUserLoggedIn()">Logout</button>
     </div>
 </header>

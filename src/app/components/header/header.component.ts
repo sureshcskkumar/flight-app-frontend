@@ -9,7 +9,7 @@ import { SearchComponent } from '../search/search.component';
 })
 export class HeaderComponent implements OnInit {
 
-  isLoggedIn = false;
+  // isLoggedIn = false;
 
   constructor(private router:Router) { }
 
@@ -32,8 +32,16 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     console.log("User is trying to logout");
-    this.router.navigate(["/", "logout"])
+    localStorage.clear();
+    alert(`Successfully logged out`);
+    this.router.navigate(["/"])
   }
 
+  isUserLoggedIn() {
+    if (!!localStorage.getItem("token") ) {
+      return true;
+    }
+    return false;
+  }
 
 }
