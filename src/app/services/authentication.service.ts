@@ -9,14 +9,14 @@ export class AuthenticationService {
 
     register(email:string, password:string, firstName:string, lastName:string) {
 
-        let url = this.baseUrl + "register";
-        let registerObject = {email: email, password: password, firstName: firstName, lastName: lastName}
+        let url = this.baseUrl + "/api/v1.0/register";
+        let registerObject = {email: email, password: password,role: "ROLE_USER", firstName: firstName, lastName: lastName}
         return this.httpClient.post(url, registerObject, {headers: {}});
     }
 
     login(email:string, password:string) {
 
-        let url = this.baseUrl  + "/login";
+        let url = this.baseUrl  + "/api/v1.0/login";
         let loginObject = {email: email, password: password}
         return this.httpClient.post(url, loginObject, {headers: {}});
     }
