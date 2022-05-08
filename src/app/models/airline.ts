@@ -1,4 +1,4 @@
-export class SearchResultEntity {
+export class Airline {
 
     constructor(
         public id: number,
