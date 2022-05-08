@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { BookflightComponent } from './usercomponents/bookflight/bookflight.component';
 
 const routes:Routes = [
   // {path: "login", component: LoginComponent},
@@ -8,7 +9,9 @@ const routes:Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BookflightComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
