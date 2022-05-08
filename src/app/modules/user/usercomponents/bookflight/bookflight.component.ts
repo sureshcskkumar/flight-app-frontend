@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingDetail } from 'src/app/models/bookingDetail';
 
 @Component({
   selector: 'app-bookflight',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookflightComponent implements OnInit {
 
+  bookingDetail:BookingDetail | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {

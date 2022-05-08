@@ -46,7 +46,8 @@
                 <td>{{returnSearchResultEntity.startTime}}</td>
                 <td>{{returnSearchResultEntity.endTime}}</td>
                 <td>{{returnSearchResultEntity.ticketCost}}</td>
-                <td>{{returnSearchResultEntity.ticketCost}}</td>
+                <td *ngIf="isLoggedIn() && isUser()"><a routerLink="../user/bookflight"><button>Book Flight</button></a></td>
+                <td *ngIf="!isLoggedIn() || !isUser()"><a routerLink="../login"><button>Login to Book</button></a></td>
             </tr>
         </table>
     </div>
