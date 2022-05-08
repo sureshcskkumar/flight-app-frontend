@@ -12,7 +12,7 @@ export class AddflightComponent implements OnInit {
 
   addflightForm:FormGroup;
 
-  constructor(private x:AdminService,private router: Router) {
+  constructor(private adminService:AdminService,private router: Router) {
     this.addflightForm = new FormGroup({
       name: new FormControl("", [
         Validators.required,
@@ -31,8 +31,17 @@ export class AddflightComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addFlight(name:string, contact:string) {
-    console.log("Flight Name: " + name)
-    
+  addAirline(name:string, contact:string) {
+    console.log("Flight Name: " + name);
+    this.adminService.addAirline(name,contact).subscribe({
+      next: (response:any) => {
+        alert(`Airline added successfully`);
+        this.router.navigate(["/", "admin", "viewflights"])
+      },
+      error: err => {
+        alert(`Airline could not be added. Check console logs for now`);
+        console.error(err);
+      }
+    })
   }
 }
