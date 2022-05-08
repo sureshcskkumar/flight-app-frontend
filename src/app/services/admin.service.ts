@@ -26,4 +26,9 @@ export class AdminService {
         let url = this.baseUrl + "/flight/airline/schedule/add";
         return this.httpClient.post(url, schedule, {headers: {"Authorization": "Bearer "+localStorage.getItem("token")}});
     }
+
+    getSchedules() {
+        let url = this.baseUrl + "/flight/airline/getschedules";
+        return this.httpClient.get(url, {headers: {"Authorization": "Bearer "+localStorage.getItem("token")}});
+    }
 }

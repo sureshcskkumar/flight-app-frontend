@@ -58,7 +58,7 @@ export class AddscheduleComponent implements OnInit {
                                   endTime,
                                   parseInt(numberOfSeats),
                                   parseInt(numberOfSeats),
-                                  parseFloat(numberOfSeats)
+                                  parseFloat(ticketCost)
                               );
       this.adminService.addSchedule(schedule).subscribe({
         next: (response:any) => {
