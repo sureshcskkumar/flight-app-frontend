@@ -7,6 +7,8 @@ import { AddscheduleComponent } from './admincomponents/addschedule/addschedule.
 import { ViewscheduleComponent } from './admincomponents/viewschedule/viewschedule.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 const routes:Routes = [
   {path: "addflight", component: AddflightComponent},
