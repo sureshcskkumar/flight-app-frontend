@@ -18,11 +18,13 @@
                 <th>Start Time</th>
                 <th>EndTime</th>
                 <th>Ticket Cost</th>
+                <th>Book Tickets</th>
             </tr>
             <tr *ngFor="let searchResultEntity of searchResult.departureFlightResultList">
                 <td>{{searchResultEntity.airlineName}}</td>
                 <td>{{searchResultEntity.startTime}}</td>
                 <td>{{searchResultEntity.endTime}}</td>
+                <td>{{searchResultEntity.ticketCost}}</td>
                 <td>{{searchResultEntity.ticketCost}}</td>
             </tr>
         </table>
@@ -36,7 +38,7 @@
                 <th>Start Time</th>
                 <th>EndTime</th>
                 <th>Ticket Cost</th>
-                <th>Ticket Cost</th>
+                <th>Book Ticket</th>
             </tr>
             <tr *ngFor="let returnSearchResultEntity of searchResult.returnFlightResultList">
                 <td>{{returnSearchResultEntity.airlineName}}</td>
