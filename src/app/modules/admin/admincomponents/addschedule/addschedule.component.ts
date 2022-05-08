@@ -60,6 +60,15 @@ export class AddscheduleComponent implements OnInit {
                                   parseInt(numberOfSeats),
                                   parseFloat(numberOfSeats)
                               );
-      this.adminService.addSchedule(schedule);
+      this.adminService.addSchedule(schedule).subscribe({
+        next: (response:any) => {
+          alert(`Schedule added successfully`);
+          this.router.navigate(["/", "admin", "viewschedule"])
+        },
+        error: err => {
+          alert(`Airline could not be added. Please check console logs for now`);
+          console.error(err);
+        }
+      });
   }
 }
