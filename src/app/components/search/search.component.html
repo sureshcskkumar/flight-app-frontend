@@ -36,11 +36,13 @@
                 <th>Start Time</th>
                 <th>EndTime</th>
                 <th>Ticket Cost</th>
+                <th>Ticket Cost</th>
             </tr>
             <tr *ngFor="let returnSearchResultEntity of searchResult.returnFlightResultList">
                 <td>{{returnSearchResultEntity.airlineName}}</td>
                 <td>{{returnSearchResultEntity.startTime}}</td>
                 <td>{{returnSearchResultEntity.endTime}}</td>
+                <td>{{returnSearchResultEntity.ticketCost}}</td>
                 <td>{{returnSearchResultEntity.ticketCost}}</td>
             </tr>
         </table>
