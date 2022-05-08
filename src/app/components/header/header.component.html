@@ -3,8 +3,20 @@
     
     <div align="right">
         <button (click)="search()">Search Flights</button>
-        <button (click)="login()" *ngIf="!isUserLoggedIn()">Login</button>
-        <button (click)="register()" *ngIf="!isUserLoggedIn()">Register</button>
-        <button (click)="logout()" *ngIf="isUserLoggedIn()">Logout</button>
+        <button (click)="login()" *ngIf="!isLoggedIn()">Login</button>
+        <button (click)="register()" *ngIf="!isLoggedIn()">Register</button>
+        <button (click)="logout()" *ngIf="isLoggedIn()">Logout</button>
+    </div>
+    <div align="center" *ngIf="isLoggedIn() && isAdmin()">
+        <hr>
+        <a routerLink="admin/addflight"><button>Add Flight</button></a>
+        <a routerLink="admin/viewflights"><button>View Flights</button></a>
+        <a routerLink="admin/addschedule"><button>Add Schedule</button></a>
+        <a routerLink="admin/viewschedule"><button>View Schedule</button></a>
+    </div>
+
+    <div align="center" *ngIf="isLoggedIn() && isUser()">
+        <hr>
+        <a routerLink="search()"><button>Book Flight</button></a>
     </div>
 </header>

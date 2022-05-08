@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -46,6 +47,17 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(email,password).subscribe({
       next: (response:any) => {
         localStorage.setItem("token", response.token)
+
+        let decodecToken:any = jwtDecode(response.token)
+        if (!!decodecToken && !!decodecToken.isAdmin && decodecToken.isAdmin) {
+          localStorage.setItem("userType", "admin")
+        }
+        if (!!decodecToken && !!decodecToken.isUser && decodecToken.isUser) {
+          localStorage.setItem("userType", "user")
+        }
+
+
+
         alert(`You have been successfully logged in`);
         this.router.navigate(["/"])
       },

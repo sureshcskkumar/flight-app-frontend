@@ -37,11 +37,24 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/"])
   }
 
-  isUserLoggedIn() {
+  isLoggedIn() {
     if (!!localStorage.getItem("token") ) {
       return true;
     }
     return false;
   }
 
+  isAdmin() {
+    if (!!localStorage.getItem("userType") &&  localStorage.getItem("userType") === "admin") {
+      return true;
+    }
+    return false;
+  }
+
+  isUser() {
+    if (!!localStorage.getItem("userType") &&  localStorage.getItem("userType") === "user") {
+      return true;
+    }
+    return false;
+  }
 }
