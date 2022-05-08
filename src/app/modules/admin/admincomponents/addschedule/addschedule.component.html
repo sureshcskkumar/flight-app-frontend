@@ -1,6 +1,6 @@
 <div align="center">
 <form [formGroup]="addscheduleForm"
-        (submit)="addSchedule(source.value, destination.value, flightDate.value, startTime.value, endTime.value, numberOfSeats.value, numberOfVacantSeats.value, ticketCost.value)">
+        (submit)="addSchedule(source.value, destination.value, flightDate.value, startTime.value, endTime.value, numberOfSeats.value, numberOfSeats.value, ticketCost.value)">
     <table>
         <tr *ngIf="!!airline && !!airline.name">
             <td>Airline Name:</td>
@@ -32,11 +32,11 @@
         </tr>
         <tr>
             <td>Number Of Seats:</td>
-            <td><input #numberOfSeats type="text" formControlName="numberOfSeats"><br></td>
+            <td><input #numberOfSeats type="number" formControlName="numberOfSeats"><br></td>
         </tr>
         <tr>
             <td>Ticket Cost:</td>
-            <td><input #ticketCost type="text" formControlName="ticketCost"><br></td>
+            <td><input #ticketCost type="number" formControlName="ticketCost"><br></td>
         </tr>
 
         <tr>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Airline } from 'src/app/models/airline';
+import { Schedule } from 'src/app/models/schedule';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -45,8 +46,20 @@ export class AddscheduleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addSchedule(source:string, destination:string, flightDate:string, startTime:string, endTime:string, numberOfSeats:number, numberOfVacantSeats:number, ticketCost:number) {
+  addSchedule(source:string, destination:string, flightDate:string, startTime:string, endTime:string, numberOfSeats:string, numberOfVacantSeats:string, ticketCost:string) {
     this.airline = this.adminService.airlineForScheduling;
-
+    let schedule = new Schedule(
+                                  0,
+                                  this.airline,
+                                  source,
+                                  destination,
+                                  new Date(flightDate),
+                                  startTime,
+                                  endTime,
+                                  parseInt(numberOfSeats),
+                                  parseInt(numberOfSeats),
+                                  parseFloat(numberOfSeats)
+                              );
+      this.adminService.addSchedule(schedule);
   }
 }
