@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SearchResult } from 'src/app/models/search.result';
 import { FlightSearchService } from 'src/app/services/search.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,7 +15,7 @@ export class SearchComponent implements OnInit {
 
   searchForm:FormGroup;
 
-  constructor(private searchService:FlightSearchService) {
+  constructor(private searchService:FlightSearchService, private userService:UserService, private router:Router) {
     this.searchForm = new FormGroup({
       source: new FormControl("", [
         Validators.required
@@ -37,6 +39,9 @@ export class SearchComponent implements OnInit {
     console.log("Flightdate: " + flightdate);
     console.log("ReturnDate: " + returnDate);
 
+    this.userService.bookingSource = source;
+    this.userService.bookingDestination = destination;
+
     this.searchService.searchFlights(source, destination, flightdate, returnDate).subscribe({
       next: (res:any) => {
         console.log("Sending search request")
@@ -48,6 +53,13 @@ export class SearchComponent implements OnInit {
     })
 
   }
+
+  bookflight(scheduleId:number, airlineName:string) {
+    this.userService.bookingScheduleId = scheduleId;
+    this.userService.bookingAirlineName = airlineName;
+    this.router.navigate(["/", "user", "bookflight"]);
+  }
+
 
   isLoggedIn() {
     if (!!localStorage.getItem("token") ) {

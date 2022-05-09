@@ -25,7 +25,8 @@
                 <td>{{searchResultEntity.startTime}}</td>
                 <td>{{searchResultEntity.endTime}}</td>
                 <td>{{searchResultEntity.ticketCost}}</td>
-                <td *ngIf="isLoggedIn() && isUser()"><a routerLink="../user/bookflight"><button>Book Flight</button></a></td>
+                <!-- <td *ngIf="isLoggedIn() && isUser()"><a routerLink="../user/bookflight"><button>Book Flight</button></a></td> -->
+                <td *ngIf="isLoggedIn() && isUser()"><button (click) = "bookflight(searchResultEntity.scheduleId, searchResultEntity.airlineName)">Book Flight</button></td>
                 <td *ngIf="!isLoggedIn() || !isUser()"><a routerLink="../login"><button>Login to Book</button></a></td>
             </tr>
         </table>
@@ -46,7 +47,8 @@
                 <td>{{returnSearchResultEntity.startTime}}</td>
                 <td>{{returnSearchResultEntity.endTime}}</td>
                 <td>{{returnSearchResultEntity.ticketCost}}</td>
-                <td *ngIf="isLoggedIn() && isUser()"><a routerLink="../user/bookflight"><button>Book Flight</button></a></td>
+                <!-- <td *ngIf="isLoggedIn() && isUser()"><a routerLink="../user/bookflight"><button>Book Flight</button></a></td> -->
+                <td *ngIf="isLoggedIn() && isUser()"><button (click) = "bookflight(returnSearchResultEntity.scheduleId, returnSearchResultEntity.airlineName)">Book Flight</button></td>
                 <td *ngIf="!isLoggedIn() || !isUser()"><a routerLink="../login"><button>Login to Book</button></a></td>
             </tr>
         </table>
