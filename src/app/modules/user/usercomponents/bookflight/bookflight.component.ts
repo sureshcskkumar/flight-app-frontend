@@ -53,7 +53,10 @@ export class BookflightComponent implements OnInit {
   }
 
   bookTickets() {
+    console.log("Passesngers:")
+    console.log(this.passengers)
     this.bookingDetail = new BookingDetail(this.bookingSource, this.bookingDestination, this.passengers);
+    console.log(this.bookingDetail)
     this.userService.bookTickets(this.bookingDetail, this.bookingScheduleId).subscribe({
       next: (response:any) => {
         alert(`Tickets booked successfully`);
