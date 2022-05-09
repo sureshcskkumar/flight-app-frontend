@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { scheduled } from 'rxjs';
 import { BookingDetail } from 'src/app/models/bookingDetail';
 import { Passenger } from 'src/app/models/passenger';
@@ -23,7 +24,7 @@ export class BookflightComponent implements OnInit {
 
   bookingDetail:BookingDetail | undefined;
   
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService, private router: Router) {
     this.passengerForm = new FormGroup({
       name: new FormControl("", [
         Validators.required
@@ -53,11 +54,14 @@ export class BookflightComponent implements OnInit {
 
   bookTickets() {
     this.bookingDetail = new BookingDetail(this.bookingSource, this.bookingDestination, this.passengers);
-    this.userService.bookTickets(this.bookingDetail, this.bookingScheduleId).({
-      next: (res:any) => {
-        console.log("Sending search request")
-
-
+    this.userService.bookTickets(this.bookingDetail, this.bookingScheduleId).subscribe({
+      next: (response:any) => {
+        alert(`Tickets booked successfully`);
+        this.router.navigate(["/"])
+      },
+      error: err => {
+        alert(`Tickets could not be booked. Please check console logs for now`);
+        console.error(err);
       }
     });
   }
