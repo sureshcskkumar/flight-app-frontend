@@ -60,7 +60,7 @@ export class BookflightComponent implements OnInit {
     this.userService.bookTickets(this.bookingDetail, this.bookingScheduleId).subscribe({
       next: (response:any) => {
         alert(`Tickets booked successfully`);
-        this.router.navigate(["/"])
+        this.router.navigate(["/", "user", "viewbookings"])
       },
       error: err => {
         alert(`Tickets could not be booked. Please check console logs for now`);
