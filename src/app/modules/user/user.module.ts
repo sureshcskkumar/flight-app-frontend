@@ -4,16 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookflightComponent } from './usercomponents/bookflight/bookflight.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewbookingsComponent } from './usercomponents/viewbookings/viewbookings.component';
 
 const routes:Routes = [
-  // {path: "login", component: LoginComponent},
-  // {path: "welcome", component: WelcomeComponent}
-  {path: "bookflight", component: BookflightComponent}
+
+  {path: "bookflight", component: BookflightComponent},
+  {path: "viewbookings", component: ViewbookingsComponent}
 ];
 
 @NgModule({
   declarations: [
-    BookflightComponent
+    BookflightComponent,
+    ViewbookingsComponent
   ],
   imports: [
     CommonModule,

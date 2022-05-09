@@ -19,5 +19,10 @@ export class UserService {
         let url = this.baseUrl + "/flight/booking/" + bookingScheduleId;
         return this.httpClient.post(url, bookingDetail, {headers: {"Authorization": "Bearer "+localStorage.getItem("token")}});
     }
+
+    getTickets() {
+        let url = this.baseUrl + "/flight/booking/history";
+        return this.httpClient.get(url, {headers: {"Authorization": "Bearer "+localStorage.getItem("token")}});
+    }
     
 }
